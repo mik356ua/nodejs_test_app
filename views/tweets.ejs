@@ -1,0 +1,6 @@
+<h1>Tweets for @<%= user %></h1>
+<ul>
+    <% (tweets.errors || tweets).forEach(function(item){ %>
+        <li><%= item.message||item.text %></li>
+    <% }); %>
+</ul>

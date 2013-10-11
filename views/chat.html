@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Test App</title>
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h1>Socket Chat App</h1>
+        <p id="status">not connected</p>
+        <div id="messages"></div>
+        <form class="form-horizontal">
+            <textarea></textarea>
+            <button class="btn">Send</button>
+        </form>
+
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                var socket = io.connect('http://localhost:3000');
+                
+                socket.on('connect', function(){
+                    $('#status').html('connected').effect('highlight');
+                    var nickname = prompt('Insert your nickname');
+                    socket.emit('join', nickname);
+                });
+
+                socket.on('push', function(message){
+                    $('#messages').append('<p>' + message + '</p>');
+                });
+
+                $('form').on('click', 'button', function(e){
+                    e.preventDefault();
+                    var message = $('form').find('textarea').val();
+                    $('form').find('textarea').val('');
+                    socket.emit('pull', message);
+                });
+            });
+        </script>
+    </body>
+</html>

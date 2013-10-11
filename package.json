@@ -1,0 +1,9 @@
+{
+    "name": "Test App",
+    "vesrion": "0.0.1",
+    "dependencies": {
+        "express": "~2.5",
+        "socket.io": "~0.9",
+        "ejs": "~0.8"
+    }
+}
