@@ -1,9 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Test App</title>
-    </head>
-    <body>
-        <%- body %>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- set latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Chati0</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+
+    <!-- JS -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Chati0</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <%- body %>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted credit">&copy; Mike Milkman, 2013</p>
+        </div>
+    </div>
+</body>
 </html>

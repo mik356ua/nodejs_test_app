@@ -1,9 +1,10 @@
 {
-    "name": "Test App",
-    "vesrion": "0.0.1",
+    "name": "chati0",
+    "version": "0.0.1",
     "dependencies": {
-        "express": "~2.5",
         "socket.io": "~0.9",
+        "express": "~2.5",
+        "request": "~2.27.0",
         "ejs": "~0.8"
     }
 }

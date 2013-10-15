@@ -1,11 +1,13 @@
 var express = require('express'),
-    socket  = require('socket.io');
+    app = express.createServer(),
+    io  = require('socket.io').listen(app);
 
-var app = express.createServer();
-var io  = socket.listen(app);
+app.configure(function(){
+    app.use(express.static(__dirname + '/public'));
+});
 
 app.get('/', function(req, res){
-    res.sendfile(__dirname + '/views/chat.html');
+    res.render('main.ejs');
 });
 
 app.listen(3000);
